@@ -1,9 +1,11 @@
-<% Response.Cookies("nameUser")=Request.Form("firstName") %>
-<% Response.Cookies("lastNameUser")=Request.Form("lastName") %>
-<% Response.Cookies("email")=Request.Form("email") %>
-<% Response.Cookies("tickets")=Request.Form("tickets") %>
-<% Response.Cookies("quantity")=Request.Form("price") %>
-<% Response.Cookies("card")=Request.Form("card") %>
+<%
+  Response.Cookies("nameUser")=Request.Form("firstName")
+  Response.Cookies("lastNameUser")=Request.Form("lastName")
+  Response.Cookies("email")=Request.Form("email")
+  Response.Cookies("tickets")=Request.Form("tickets")
+  Response.Cookies("quantity")=Request.Form("price")
+  Response.Cookies("card")=Request.Form("card")
+ %>
 
 <!DOCTYPE html>
 <html lang="en">

@@ -1,9 +1,11 @@
-<% Response.Cookies("nameUser")=Request.QueryString("firstName") %>
-<% Response.Cookies("lastNameUser")=Request.QueryString("lastName") %>
-<% Response.Cookies("email")=Request.QueryString("email") %>
-<% Response.Cookies("tickets")=Request.QueryString("tickets") %>
-<% Response.Cookies("quantity")=Request.QueryString("price") %>
-<% Response.Cookies("card")=Request.QueryString("card") %>
+<%  
+  Response.Cookies("nameUser")=Request.QueryString("firstName")
+  Response.Cookies("lastNameUser")=Request.QueryString("lastName")
+  Response.Cookies("email")=Request.QueryString("email")
+  Response.Cookies("tickets")=Request.QueryString("tickets")
+  Response.Cookies("quantity")=Request.QueryString("price")
+  Response.Cookies("card")=Request.QueryString("card")
+%>
 
 
 <!DOCTYPE html>
