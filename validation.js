@@ -1,7 +1,7 @@
 const form = document.querySelector("form");
 const inputs = document.querySelectorAll("input");
 
-//START Anonymus functions {
+//START Anonymous functions {
 const insertClassName = (input, className) => {
   input.classList.add(className);
 };
@@ -64,5 +64,6 @@ inputs.forEach((input) => {
 form.addEventListener("submit", (e) => {
   const dataForm = Object.fromEntries(new FormData(e.target));
   e.preventDefault();
-  // if ( dataForm.email !== dataForm.emailConfirm)
+  if ( dataForm.email.toLowerCase() !== dataForm.emailConfirm.toLowerCase())
+    alert("El e-mail no coincide");
 });
