@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Inicio</title>
+    <link href="style.css" rel="stylesheet" />
+    <script defer src="validation.js"></script>
+  </head>
+
+  <body>
+    <!-- <form action="confirmationGET.asp" method="get"> -->
+    <form action="confirmationPOST.asp" method="post">
+      <table>
+        <thead>
+          <tr>
+            <th colspan="4">ENTRADAS-TEK</th>
+          </tr>
+        </thead>
+        <tr>
+          <td><span>Seleccione el equipo:</span></td>
+          <td>
+            <select name="games">
+              <option value="Barcelona - Bilbao">
+                Barcelona - Ath. Bilbao
+              </option>
+              <option value="Real Madrid - Gijon">
+                Real Madrid - Sp. Gijón
+              </option>
+              <option value="Coru - Sevilla">Dep. La Coruña – Sevilla</option>
+            </select>
+          </td>
+
+          <td><span>Seleccione la ubicación:</span></td>
+          <td>
+            <select name="location">
+              <option value="Popular Local">Popular Local</option>
+              <option value="Popular Visitante">Popular Visitante</option>
+              <option value="Platea Local">Platea Local</option>
+              <option value="Platea Visitante">Platea Visitante</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <label for="tickets"><span>Cantidad de entradas:</span> </label>
+          </td>
+          <td><input type="number" name="tickets" value="" /></td>
+          <td>
+            <label for="price"><span>Precio:</span> </label>
+          </td>
+          <td><input type="number" name="price" value="" /></td>
+        </tr>
+        <thead>
+          <tr>
+            <th colspan="4">INFORMACIÓN DE PAGO</th>
+          </tr>
+        </thead>
+        <tr>
+          <td>
+            <label for="lastName"> <span>Apellido:</span> </label>
+          </td>
+          <td><input type="text" name="lastName" value="" /></td>
+          <td>
+            <label for="firstName"> <span>Nombre:</span> </label>
+          </td>
+          <td><input type="text" name="firstName" value="" /></td>
+        </tr>
+
+        <tr>
+          <td>
+            <label for="email"> <span>E-Mail:</span> </label>
+          </td>
+          <td><input type="email" name="email" value="" /></td>
+          <td>
+            <label for="emailConfirm"> <span>Confirme E-Mail:</span> </label>
+          </td>
+          <td><input type="email" name="emailConfirm" value="" /></td>
+        </tr>
+
+        <thead>
+          <tr>
+            <th colspan="4">SELECCIONE TARJETA DE CRÉDITO</th>
+          </tr>
+        </thead>
+
+        <tr>
+          <td colspan="4">
+            <div class="radios">
+              <img src="./assets/img/visa.jpeg" alt="visa" id="visaLogo" />
+              <img
+                src="./assets/img/mastercard.jpeg"
+                alt="mastercard"
+                id="mastercardLogo"
+              />
+              <img src="./assets/img/amex.jpeg" alt="amex" id="amexLogo" />
+            </div>
+          </td>
+        </tr>
+
+        <tr>
+          <td colspan="4">
+            <div class="radios">
+              <input type="radio" name="card" value="visa" />
+              <input type="radio" name="card" value="master" />
+              <input type="radio" name="card" value="amex" />
+            </div>
+          </td>
+        </tr>
+
+        <tfoot id="tfoot">
+          <tr>
+            <td colspan="4">
+              <input type="submit" value="Enviar" class="buttons" />
+              <input type="button" value="Limpiar" class="buttons" />
+            </td>
+          </tr>
+
+          <tr></tr>
+        </tfoot>
+      </table>
+    </form>
+  </body>
+</html>
