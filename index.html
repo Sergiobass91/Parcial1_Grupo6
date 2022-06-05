@@ -26,13 +26,9 @@
             <td class="text"><span>Seleccione el equipo:</span></td>
             <td>
               <select name="games">
-                <option value="Barcelona - Bilbao">
-                  Barcelona - Ath. Bilbao
-                </option>
-                <option value="Real Madrid - Gijon">
-                  Real Madrid - Sp. Gijón
-                </option>
-                <option value="Coru - Sevilla">Dep. La Coruña – Sevilla</option>
+                <option value="Barcelona - Bilbao"> Barcelona - Ath. Bilbao </option>
+                <option value="Real Madrid - Gijon"> Real Madrid - Sp. Gijón </option>
+                <option value="Coru - Sevilla">Dep. La Coruña - Sevilla</option>
               </select>
             </td>
 
@@ -47,14 +43,10 @@
             </td>
           </tr>
           <tr>
-            <td>
-              <label for="tickets"><span>Cantidad de entradas:</span> </label>
-            </td>
-            <td><input type="number" name="tickets" value="" /></td>
-            <td>
-              <label for="price"><span>Precio:</span> </label>
-            </td>
-            <td><input type="number" name="price" value="" /></td>
+            <td> <label for="tickets"><span>Cantidad de entradas:</span> </label> </td>
+            <td><input type="number" name="tickets" id="tickets" value="" /> </td>
+            <td> <label for="price"><span>Precio:</span> </label>
+            </td> <td><input type="number" name="price" id="price" value="" /></td>
           </tr>
 
           <tr>
@@ -70,25 +62,17 @@
           </tr>
 
           <tr>
-            <td>
-              <label for="lastName"> <span>Apellido:</span> </label>
-            </td>
-            <td><input type="text" name="lastName" value="" /></td>
-            <td>
-              <label for="firstName"> <span>Nombre:</span> </label>
-            </td>
-            <td><input type="text" name="firstName" value="" /></td>
+            <td> <label for="lastName"> <span>Apellido:</span> </label> </td>
+            <td> <input type="text" name="lastName" id="lastName" value=""/> </td>
+            <td> <label for="firstName"> <span>Nombre:</span> </label> </td>
+            <td> <input type="text" name="firstName" id="firstName" value=""/> </td>
           </tr>
 
           <tr>
-            <td>
-              <label for="email"> <span>E-Mail:</span> </label>
-            </td>
-            <td><input type="email" name="email" value="" /></td>
-            <td>
-              <label for="emailConfirm"> <span>Confirme E-Mail:</span> </label>
-            </td>
-            <td><input type="email" name="emailConfirm" value="" /></td>
+            <td> <label for="email"> <span>E-Mail:</span> </label> </td>
+            <td> <input type="email" name="email" id="email" value="" /> </td>
+            <td> <label for="emailConfirm"> <span>Confirme E-Mail:</span> </label> </td>
+            <td> <input type="email" name="emailConfirm" id="emailConfirm" value="" /> </td>
           </tr>
 
           <tr>
@@ -107,11 +91,7 @@
             <td colspan="4">
               <div class="radios">
                 <img src="./assets/img/visa.jpeg" alt="visa" id="visaLogo" />
-                <img
-                  src="./assets/img/mastercard.jpeg"
-                  alt="mastercard"
-                  id="mastercardLogo"
-                />
+                <img src="./assets/img/mastercard.jpeg" alt="mastercard" id="mastercardLogo"/>
                 <img src="./assets/img/amex.jpeg" alt="amex" id="amexLogo" />
               </div>
             </td>
@@ -138,9 +118,8 @@
                 <input type="button" value="Limpiar" class="button" />
               </td>
             </tr>
-
-            <tr></tr>
           </tfoot>
+
         </table>
       </form>
     </div>
