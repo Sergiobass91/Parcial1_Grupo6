@@ -1,3 +1,10 @@
+<% Response.Cookies("nameUser")=Request.Form("firstName") %>
+<% Response.Cookies("lastNameUser")=Request.Form("lastName") %>
+<% Response.Cookies("email")=Request.Form("email") %>
+<% Response.Cookies("tickets")=Request.Form("tickets") %>
+<% Response.Cookies("quantity")=Request.Form("price") %>
+<% Response.Cookies("card")=Request.Form("card") %>
+
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -36,6 +43,7 @@
     </style>
 
   <body>
+    <h1>Por favor, confirme la compra haciendo click en el QR</h1>
     <table>
       <tr>
           <td><strong>Encuentro:</strong> <% Response.Write(Request.Form("games")) %></td>
@@ -51,6 +59,10 @@
           <td><strong>Tarjeta:</strong> <% Response.Write(Request.Form("card")) %> </td>
       </tr>
   </table>
+
+  <a href="finalize.asp" rel="noopener noreferrer">
     <img src="./assets/img/qr.png" alt="qr" id="qr" />
+  </a>
+
   </body>
 </html>
