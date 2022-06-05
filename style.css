@@ -1,4 +1,4 @@
-thead {
+/* thead {
     background-color: #3f87a6;
     color: #fff;
 }
@@ -29,6 +29,64 @@ th {
 
 tfoot {
     text-align: center;
+} */
+
+body {
+    background-color: #FFFF99;
+}
+
+span {
+    font-family: tahoma;
+    font-size: large;
+    font-weight: 100;
+    text-transform: capitalize;
+    color: #0000FF;
+}
+
+div {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    width: 100%;
+}
+
+table {
+    background-color: #CC99FF;
+    padding: 20px 20px;
+}
+
+select {
+    font-family: perpetua;
+    font-size: large;
+    color: #FF0066;
+    background-color: #6699FF;
+}
+
+hr {
+    border: medium solid #990099;
+}
+
+.title {
+    color: #008080;
+    text-decoration: blink;
+}
+
+.button {
+    font-family: adobe-gothic-std-b;
+    font-size: large;
+    color: #009900;
+    background-color: #66FFCC;
+    border-color: #808000;;
+    padding: 10px;
+    font-weight: 200;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+input {
+    font-family: 'Times New Roman';
+    /* color: #6600CC; */
+    background-color: #CCCCFF;
 }
 
 #visaLogo {
