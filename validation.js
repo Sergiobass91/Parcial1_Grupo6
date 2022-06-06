@@ -72,7 +72,7 @@ const isLengthValid = (input) => {
   return input.length <= 25;
 }
 
-function ticketPrice() {
+const ticketPrice = () => {
 
   const selectGame = games.options[games.selectedIndex].value;
   const selecLoc = loc.options[loc.selectedIndex].value;
@@ -80,22 +80,23 @@ function ticketPrice() {
   let price = document.querySelector("#price");
 
   switch (true) {
-    case (selectGame == "Barcelona_Bilbao" && selecLoc.includes("Popular")):
+    case (selectGame.includes("Barcelona") && selecLoc.includes("Popular")):
       return price.value = quantityTickets * 200;
-    case (selectGame == "Real_Gijon" && selecLoc.includes("Popular")):
+    case (selectGame.includes("Real") && selecLoc.includes("Popular")):
       return price.value = quantityTickets * 150;
-    case (selectGame == "Coruna_Sevilla" && selecLoc.includes("Popular")):
+    case (selectGame.includes("Coruna") && selecLoc.includes("Popular")):
       return price.value = quantityTickets * 170;
-    case (selectGame == "Barcelona_Bilbao" && selecLoc.includes("Platea")):
+    case (selectGame.includes("Barcelona") && selecLoc.includes("Platea")):
       return price.value = quantityTickets * (200 * 5);
-    case (selectGame == "Real_Gijon" && selecLoc.includes("Platea")):
+    case (selectGame.includes("Real") && selecLoc.includes("Platea")):
       return price.value = quantityTickets * (150 * 5);
-    case (selectGame == "Coruna_Sevilla" && selecLoc.includes("Platea")):
+    case (selectGame.includes("Coruna") && selecLoc.includes("Platea")):
       return price.value = quantityTickets * (170 * 5);
     default:
       return 0;
   };
 }
+
 //END Anonymous functions}
 
 //START Event listeners {
