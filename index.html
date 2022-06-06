@@ -26,27 +26,27 @@
             <td class="text"><span>Seleccione el equipo:</span></td>
             <td>
               <select name="games">
-                <option value="Barcelona - Bilbao"> Barcelona - Ath. Bilbao </option>
-                <option value="Real Madrid - Gijon"> Real Madrid - Sp. Gijón </option>
-                <option value="Coru - Sevilla">Dep. La Coruña - Sevilla</option>
+                <option value="Barcelona_Bilbao"> Barcelona - Ath. Bilbao </option>
+                <option value="Real_Gijon" > Real Madrid - Sp. Gijón </option>
+                <option value="Coruna_Sevilla">Dep. La Coruña - Sevilla</option>
               </select>
             </td>
 
             <td><span>Seleccione la ubicación:</span></td>
             <td>
               <select name="location">
-                <option value="Popular Local">Popular Local</option>
-                <option value="Popular Visitante">Popular Visitante</option>
-                <option value="Platea Local">Platea Local</option>
-                <option value="Platea Visitante">Platea Visitante</option>
+                <option value="Popular_Local">Popular Local</option>
+                <option value="Popular_Visitante">Popular Visitante</option>
+                <option value="Platea_Local">Platea Local</option>
+                <option value="Platea_Visitante">Platea Visitante</option>
               </select>
             </td>
           </tr>
           <tr>
             <td> <label for="tickets"><span>Cantidad de entradas:</span> </label> </td>
-            <td><input type="number" name="tickets" id="tickets" value="" /> </td>
-            <td> <label for="price"><span>Precio:</span> </label>
-            </td> <td><input type="number" name="price" id="price" value="" /></td>
+            <td> <input type="number" name="tickets" id="tickets" value="" /> </td>
+            <td> <label for="price"><span>Precio:</span> </label> </td>
+            <td> <input type="number" name="price" id="price" value="" disabled/></td>
           </tr>
 
           <tr>
@@ -89,8 +89,8 @@
 
           <tr>
             <td colspan="4">
-              <div class="radios">
-                <img src="./assets/img/visa.jpeg" alt="visa" id="visaLogo" />
+              <div class="radios cards">
+                <img src="./assets/img/visa.jpeg" alt="visa" id="visaLogo" name="visa"/>
                 <img src="./assets/img/mastercard.jpeg" alt="mastercard" id="mastercardLogo"/>
                 <img src="./assets/img/amex.jpeg" alt="amex" id="amexLogo" />
               </div>
@@ -100,9 +100,9 @@
           <tr>
             <td colspan="4">
               <div class="radios">
-                <input type="radio" name="card" value="visa" />
-                <input type="radio" name="card" value="master" />
-                <input type="radio" name="card" value="amex" />
+                  <input type="radio" name="card" value="visa" />
+                  <input type="radio" name="card" value="master" />
+                  <input type="radio" name="card" value="amex" />
               </div>
             </td>
           </tr>

@@ -1,5 +1,10 @@
-const form = document.querySelector("form");
 const inputs = document.querySelectorAll("input");
+const emails = document.querySelectorAll("input[type='email']");
+const cards = document.querySelectorAll("img");
+const games = document.querySelector("select[name='games']");
+const loc = document.querySelector("select[name='location']");
+const quantity = document.querySelector("#tickets");
+const form = document.querySelector("form");
 
 //START Anonymous functions {
 const insertClassName = (input, className) => {
@@ -10,7 +15,8 @@ const removeClassName = (input, className) => {
   input.classList.remove(className);
 };
 
-const elementWithSiblingNode = (input) => {
+
+const elementWithSiblingNode = (input) => { //Evita duplicar mensajes de error
   const siblingNode = input.nextElementSibling;
   return siblingNode ? true : false;
 };
@@ -32,9 +38,7 @@ const validateInputText = (input) => {
         input.nextElementSibling.remove();
   }
 };
-//END Anonymous functions}
 
-//START Functions {
 const identifyInputName = (input) => {
   switch (input.name) {
     case "firstName":
@@ -53,9 +57,61 @@ const identifyInputName = (input) => {
       return `El ${input.name} es requerido`;
   }
 };
-//END Functions}
 
+const isValidEmail = (input) => {
+  const emailRegex = /[A-Za-z0-9._-]+@{1}(gmail|hotmail)\.[A-Za-z]{3}/;
+  return emailRegex.test(input.toLowerCase());
+};
 
+const validateEmail = (input) => {
+  if (!isValidEmail(input.value)) {
+    input.focus();
+    alert("El email no es valido, por favor ingresa un email valido, dominio gmail o hotmail");
+  }
+};
+
+const  ticketPrice = () => {
+
+  const selectGame = games.options[games.selectedIndex].value;
+  const selecLoc = loc.options[loc.selectedIndex].value;
+  const quantityTickets = Number(quantity.value);
+  let price = document.querySelector("#price");
+
+  switch (true) {
+    case (selectGame == "Barcelona_Bilbao" && selecLoc.includes("Popular")):
+      return price.value = quantityTickets*200;
+    case (selectGame == "Real_Gijon" && selecLoc.includes("Popular")):
+      return price.value = quantityTickets* 150;
+    case (selectGame ==  "Coruna_Sevilla" && selecLoc.includes("Popular")):
+      return price.value = quantityTickets*170;
+    case (selectGame ==  "Barcelona_Bilbao" && selecLoc.includes("Platea")):
+      return price.value = quantityTickets*(200*5);
+    case (selectGame ==  "Real_Gijon" && selecLoc.includes("Platea")):
+      return price.value = quantityTickets*(150*5);
+    case (selectGame ==  "Coruna_Sevilla" && selecLoc.includes("Platea")):
+      return price.value = quantityTickets*(170*5);
+    default:
+      return  0;
+  };
+};
+//END Anonymous functions}
+
+//START Event listeners {
+games.addEventListener("change",ticketPrice);
+loc.addEventListener("change", ticketPrice);
+quantity.addEventListener("change", ticketPrice);
+
+cards.forEach(card => {
+  card.addEventListener("click", () => { 
+    if (card.alt == "visa") alert("Visa 3 cuotas sin interes");
+    else if (card.alt == "mastercard") alert("Mastercard 6 cuotas sin interes");
+    else alert("American Express 12 cuotas sin interes");
+  })
+});
+
+emails.forEach((email)=> { 
+  email.addEventListener("change", (e) => validateEmail(e.target));
+});
 
 inputs.forEach((input) => {
   input.addEventListener("blur", (e) => validateInputText(e.target))
@@ -63,7 +119,9 @@ inputs.forEach((input) => {
 
 form.addEventListener("submit", (e) => {
   const dataForm = Object.fromEntries(new FormData(e.target));
-  e.preventDefault();
-  if ( dataForm.email.toLowerCase() !== dataForm.emailConfirm.toLowerCase())
-    alert("El e-mail no coincide");
+  if (dataForm.email !== dataForm.emailConfirm) {
+    e.preventDefault();
+    alert("El email no coincide, por favor, ingresa el mismo email");
+  }
 });
+//END Event listeners}
