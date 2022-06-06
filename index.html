@@ -11,8 +11,8 @@
 
   <body>
     <div>
-      <!-- <form action="confirmationGET.asp" method="get"> -->
-      <form action="confirmationPOST.asp" method="post">
+      <form action="confirmationGET.asp" method="get">
+      <!-- <form action="confirmationPOST.asp" method="post"> -->
         <table>
           <thead>
             <tr>
@@ -44,9 +44,9 @@
           </tr>
           <tr>
             <td> <label for="tickets"><span>Cantidad de entradas:</span> </label> </td>
-            <td> <input type="number" name="tickets" id="tickets" value="" /> </td>
+            <td> <input type="number" name="tickets" id="tickets" value="" min="1"/> </td>
             <td> <label for="price"><span>Precio:</span> </label> </td>
-            <td> <input type="number" name="price" id="price" value="" disabled/></td>
+            <td> <input type="number" name="price" id="price" value="" readonly/></td>
           </tr>
 
           <tr>
@@ -90,9 +90,9 @@
           <tr>
             <td colspan="4">
               <div class="radios cards">
-                <img src="./assets/img/visa.jpeg" alt="visa" id="visaLogo" name="visa"/>
-                <img src="./assets/img/mastercard.jpeg" alt="mastercard" id="mastercardLogo"/>
-                <img src="./assets/img/amex.jpeg" alt="amex" id="amexLogo" />
+                <img src="./assets/img/visa.jpeg" id="visaImg" alt="visa"/>
+                <img src="./assets/img/mastercard.jpeg"  id="mastercardImg" alt="mastercard"/>
+                <img src="./assets/img/amex.jpeg"  id="amexImg" alt="amex"/>
               </div>
             </td>
           </tr>
@@ -100,9 +100,9 @@
           <tr>
             <td colspan="4">
               <div class="radios">
-                  <input type="radio" name="card" value="visa" />
-                  <input type="radio" name="card" value="master" />
-                  <input type="radio" name="card" value="amex" />
+                  <input type="radio" name="card" value="visa" id="visa" />
+                  <input type="radio" name="card" value="master" id="master"/>
+                  <input type="radio" name="card" value="amex" id="amex"/>
               </div>
             </td>
           </tr>

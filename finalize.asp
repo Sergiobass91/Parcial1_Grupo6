@@ -45,7 +45,7 @@
 
       <tr>
         <td><strong>Cantidad tickets:</strong>  <% Response.Write(Request.Cookies("tickets")) %> </td>
-        <td><strong>Precio total: </strong> $ <% Response.Write(Request.Cookies("quantity")) %> </td>
+        <td><strong>Precio total: </strong> $ <% Response.Write(Request.Cookies("price")) %> </td>
         <td><strong>Tarjeta de pago: </strong> <% Response.Write(Request.Cookies("card")) %> </td>
       </tr>
   </table>

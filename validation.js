@@ -47,8 +47,6 @@ const identifyInputName = (input) => {
       return "El apellido es requerido";
     case "tickets":
       return "La cantidad de entradas es requerida";
-    case "price":
-      return "precio";
     case "card":
       return "Debe seleccionar una tarjeta para pagar";
     case "emailConfirm":
@@ -70,7 +68,11 @@ const validateEmail = (input) => {
   }
 };
 
-const  ticketPrice = () => {
+const isLengthValid = (input) => {
+  return input.length <= 25;
+}
+
+function ticketPrice() {
 
   const selectGame = games.options[games.selectedIndex].value;
   const selecLoc = loc.options[loc.selectedIndex].value;
@@ -79,21 +81,21 @@ const  ticketPrice = () => {
 
   switch (true) {
     case (selectGame == "Barcelona_Bilbao" && selecLoc.includes("Popular")):
-      return price.value = quantityTickets*200;
+      return price.value = quantityTickets * 200;
     case (selectGame == "Real_Gijon" && selecLoc.includes("Popular")):
-      return price.value = quantityTickets* 150;
-    case (selectGame ==  "Coruna_Sevilla" && selecLoc.includes("Popular")):
-      return price.value = quantityTickets*170;
-    case (selectGame ==  "Barcelona_Bilbao" && selecLoc.includes("Platea")):
-      return price.value = quantityTickets*(200*5);
-    case (selectGame ==  "Real_Gijon" && selecLoc.includes("Platea")):
-      return price.value = quantityTickets*(150*5);
-    case (selectGame ==  "Coruna_Sevilla" && selecLoc.includes("Platea")):
-      return price.value = quantityTickets*(170*5);
+      return price.value = quantityTickets * 150;
+    case (selectGame == "Coruna_Sevilla" && selecLoc.includes("Popular")):
+      return price.value = quantityTickets * 170;
+    case (selectGame == "Barcelona_Bilbao" && selecLoc.includes("Platea")):
+      return price.value = quantityTickets * (200 * 5);
+    case (selectGame == "Real_Gijon" && selecLoc.includes("Platea")):
+      return price.value = quantityTickets * (150 * 5);
+    case (selectGame == "Coruna_Sevilla" && selecLoc.includes("Platea")):
+      return price.value = quantityTickets * (170 * 5);
     default:
-      return  0;
+      return 0;
   };
-};
+}
 //END Anonymous functions}
 
 //START Event listeners {
@@ -101,13 +103,16 @@ games.addEventListener("change",ticketPrice);
 loc.addEventListener("change", ticketPrice);
 quantity.addEventListener("change", ticketPrice);
 
-cards.forEach(card => {
-  card.addEventListener("click", () => { 
-    if (card.alt == "visa") alert("Visa 3 cuotas sin interes");
-    else if (card.alt == "mastercard") alert("Mastercard 6 cuotas sin interes");
-    else alert("American Express 12 cuotas sin interes");
-  })
-});
+cards.forEach((card)=> {
+  card.addEventListener("click", ()=>{
+    if (card.id == "visaImg")
+      alert("Visa 3 cuotas sin interes");
+    else if (card.id == "mastercardImg")
+      alert("Mastercard 6 cuotas sin interes");
+    else
+      alert("American Express 12 cuotas sin interes");
+  });
+})
 
 emails.forEach((email)=> { 
   email.addEventListener("change", (e) => validateEmail(e.target));
@@ -119,9 +124,26 @@ inputs.forEach((input) => {
 
 form.addEventListener("submit", (e) => {
   const dataForm = Object.fromEntries(new FormData(e.target));
+  console.log(dataForm);
   if (dataForm.email !== dataForm.emailConfirm) {
     e.preventDefault();
     alert("El email no coincide, por favor, ingresa el mismo email");
   }
+
+  if (dataForm.firstName === "" || dataForm.lastName === "" || dataForm.tickets === "" || (dataForm.card == null || dataForm.card === "") || dataForm.email === "" || dataForm.emailConfirm === "") {
+    e.preventDefault();
+    alert("Por favor, rellena todos los campos");
+  }
+
+  if (! isLengthValid(dataForm.firstName) || ! isLengthValid(dataForm.lastName)) {
+    e.preventDefault();
+    alert("El nombre y apellido no pueden tener mas de 25 caracteres");
+  }
+
+  if (dataForm.tickets < 1 || dataForm.tickets > 25) {
+    e.preventDefault();
+    alert("Debes comprar al menos 1 tickket y no mas de 25 por compra");
+  }
+
 });
 //END Event listeners}

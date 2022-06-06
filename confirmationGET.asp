@@ -3,7 +3,7 @@
   Response.Cookies("lastNameUser")=Request.QueryString("lastName")
   Response.Cookies("email")=Request.QueryString("email")
   Response.Cookies("tickets")=Request.QueryString("tickets")
-  Response.Cookies("quantity")=Request.QueryString("price")
+  Response.Cookies("price")=Request.QueryString("price")
   Response.Cookies("card")=Request.QueryString("card")
 %>
 
