@@ -96,10 +96,21 @@ const ticketPrice = () => {
       return 0;
   };
 }
-
 //END Anonymous functions}
 
+
+//START regular functions
+function blurAndValidateText() {
+  const arrayFromInputs = Array.from(inputs);
+  arrayFromInputs.filter((input) => (input.type !== "radio" && input.type !== "button" && 
+                                     input.type !== "submit")).forEach((input) => {
+    input.addEventListener("blur", (e) => validateInputText(e.target))
+  })
+};
+//END functions
+
 //START Event listeners {
+blurAndValidateText();
 games.addEventListener("change",ticketPrice);
 loc.addEventListener("change", ticketPrice);
 quantity.addEventListener("change", ticketPrice);
@@ -119,9 +130,9 @@ emails.forEach((email)=> {
   email.addEventListener("change", (e) => validateEmail(e.target));
 });
 
-inputs.forEach((input) => {
-  input.addEventListener("blur", (e) => validateInputText(e.target))
-});
+// inputs.forEach((input) => {
+//   input.addEventListener("blur", (e) => validateInputText(e.target))
+// });
 
 form.addEventListener("submit", (e) => {
   const dataForm = Object.fromEntries(new FormData(e.target));
